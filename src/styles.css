@@ -1,0 +1,16 @@
+/* src/styles.css */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff, #ffffff);
+}
+
+/* Add basic visibility check */
+app-root {
+  display: block;
+  border: 2px solid rgb( #ffffff, #ffffff); /* Should see red border if component renders */
+  padding: 20px;
+}

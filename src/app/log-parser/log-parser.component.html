@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>UPLOAD LOG FILES</h2>
+
+  <header>
+    <img
+      src="https://www.untether.ai/wp-content/uploads/2023/12/untetherai_logo.svg"
+      class="logo"
+      alt="Untether AI"
+      decoding="async"
+    />
+   
+  </header>
+
+  <!-- File Upload Section -->
+  <input type="file" multiple (change)="onFilesSelected($event)">
+   
+  <!-- Button Container -->
+  <div class="button-container">
+    <!-- Button to Process Logs -->
+    <button (click)="processLogs()" [disabled]="isLoading">
+      {{ isLoading ? 'Processing...' : 'Upload & Analyze' }}
+    </button>
+
+    <!-- Button to Fetch Pie Charts -->
+    <button (click)="fetchPieChart(selectedFiles)" [disabled]="isLoading">
+      {{ isLoading ? 'Processing...' : 'Fetch Pie Charts' }}
+    </button>
+
+    <!-- Button to Download Combined Image -->
+    <button (click)="downloadCombinedImage()" [disabled]="isLoading">
+      Download PieCharts
+    </button>
+  </div>
+
+  <!-- Error Message Section -->
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+<!-- Pie Charts Display Section -->
+<div *ngIf="chartUrls.ECO || chartUrls.SPORT">
+  <div class="chart-container">
+    <!-- ECO Chart -->
+    <div *ngIf="chartUrls.ECO" class="chart-item">
+      <h4>ECO Mode</h4>
+      <img [src]="chartUrls.ECO" alt="ECO Pie Chart" class="chart-image">
+    </div>
+
+    <!-- SPORT Chart -->
+    <div *ngIf="chartUrls.SPORT" class="chart-item">
+      <h4>SPORT Mode</h4>
+      <img [src]="chartUrls.SPORT" alt="SPORT Pie Chart" class="chart-image">
+    </div>
+  </div>
+
+  <!-- Refresh Button -->
+  <div class="refresh-button">
+    <button (click)="refreshAll()">Refresh</button>
+  </div>
+</div>
+</div>
