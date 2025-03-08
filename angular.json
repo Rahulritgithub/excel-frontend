@@ -16,6 +16,8 @@
             "outputPath": "dist/my-project",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "./",
+            "deployUrl": "./",
             "polyfills": [
               "zone.js"
             ],
